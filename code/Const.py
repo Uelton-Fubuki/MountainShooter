@@ -1,0 +1,17 @@
+#C
+
+COLOR_ORANGE = (255, 128, 0)
+COLOR_WHITE = (255, 255, 255)
+
+# m
+
+MENU_OPTION = ('NOVO NAVEGADOR 1P',
+               'NOVOS NAVEGADORES 2P - COOPERATIVO',
+               'NOVOS NAVEGADORES 2P - COMPETITIVO',
+               'SCORE',
+               'SAIR')
+
+#w
+
+WIN_WIDTH = 576
+WIN_HEIGHT = 324
