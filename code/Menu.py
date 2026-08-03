@@ -10,12 +10,12 @@ from code.Const import WIN_WIDTH, MENU_OPTION, COLOR_ORANGE, COLOR_WHITE, COLOR_
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('../assert/MenuBg.png')
+        self.surf = pygame.image.load('./asset/MenuBg.png')
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
         menu_option = 0
-        pygame.mixer_music.load('../assert/Menu.mp3')
+        pygame.mixer_music.load('asset/Menu.mp3')
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
@@ -29,7 +29,7 @@ class Menu:
                 else:
                     self.menu_text(text_size=20, text=MENU_OPTION[i], text_color=COLOR_WHITE,
                                text_center_pos=((WIN_WIDTH / 2), 200 + 25 * i))
-
+            pygame.display.flip()
 
             # Chek for all events
             for event in pygame.event.get():
@@ -48,9 +48,11 @@ class Menu:
                           menu_option -= 1
                       else:
                           menu_option = len(MENU_OPTION) - 1
+                  if event.key == pygame.K_RETURN:  # ENTER
+                      return MENU_OPTION[menu_option]
 
 
-            pygame.display.flip()
+
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont("Lucida Sans Typewriter",text_size)
