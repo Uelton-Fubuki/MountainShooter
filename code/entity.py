@@ -19,3 +19,7 @@ class Entity(ABC):
 
 
     #ENTITY_SPEED[self.name]
+
+
+def entity():
+    return None
