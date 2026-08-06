@@ -1,12 +1,18 @@
 # code/enemy.py
+from code.EnemyShot import EnemyShot
 from code.entity import Entity
-from code.Const import ENTITY_SPEED, WIN_WIDTH  # Ou a velocidade que você definiu
+from code.Const import ENTITY_SPEED, WIN_WIDTH, ENTITY_SHOT_DELAY  # Ou a velocidade que você definiu
 
 class Enemy(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
-        self.speed = 2  # Velocidade do inimigo
+        self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
     def move(self):
         # Move o retângulo para a esquerda
         self.rect.centerx -= ENTITY_SPEED[self.name]
+    def shoot (self, ):
+        self.shot_delay -= 1
+        if self.shot_delay == 0:
+            self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+            return EnemyShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
