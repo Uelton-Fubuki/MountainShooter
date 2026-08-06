@@ -7,5 +7,8 @@ class Entity:
 
 
 class Entity:
+    def __init__(self):
+        self.health = None
+
     pass
 

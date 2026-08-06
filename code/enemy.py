@@ -10,5 +10,3 @@ class Enemy(Entity):
     def move(self):
         # Move o retângulo para a esquerda
         self.rect.centerx -= ENTITY_SPEED[self.name]
-        if self.rect.right <= 0:
-            self.rect.left= WIN_WIDTH
