@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 import pygame
 
-from code.Const import ENTITY_HEALTH
+from code.Const import ENTITY_HEALTH, ENTITY_DAMAGE, ENTITY_SCORE
 
 
 class Entity(ABC):
@@ -16,6 +16,9 @@ class Entity(ABC):
 
         # Proteção com .get(): se o nome não estiver no dicionário (ex: tiros), usa 0 como padrão
         self.health = ENTITY_HEALTH.get(self.name, 0)
+        self.damage = ENTITY_DAMAGE[self.name]
+        self.score = ENTITY_SCORE[self.name]
+        self.last_dmg ='None'
 
     @abstractmethod
     def move(self):

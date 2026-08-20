@@ -12,3 +12,14 @@ class Entity:
 
     pass
 
+
+class Entity:
+    pass
+
+
+class Enemy:
+    pass
+
+
+class Player:
+    pass
